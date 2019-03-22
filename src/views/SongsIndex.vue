@@ -14,20 +14,12 @@
            </tr>
          </thead>
          <tbody>
-           <tr>
-             <th scope="row">1</th>
-             <td>Mark</td>
-             <td>Otto</td>
-           </tr>
-           <tr>
-             <th scope="row">2</th>
-             <td>Jacob</td>
-             <td>Thornton</td>
-           </tr>
-           <tr>
-             <th scope="row">3</th>
-             <td>Larry</td>
-             <td>the Bird</td>
+           <tr v-for="song in songs">
+             <th scope="row">{{ song.id }}</th>
+             <td>
+               <router-link :to="'/songs/' + song.id">{{ song.title }}</router-link>
+             </td>
+             <td>{{ song.artist }}</td>
            </tr>
          </tbody>
        </table>

@@ -4,7 +4,7 @@
       
       <h1>{{song.title}}</h1>
       <h3>Artist: {{song.artist}}</h3>
-      <h4>Lyrics: {{song.lyrics}}</h4>
+      <h4>Lyrics: <pre>{{song.lyrics}}</pre></h4>
       <h3>Beats Per Measure: {{song.beats_per_measure}}</h3>
       <h3>Note Value: {{song.note_value}}</h3>
 
@@ -15,216 +15,21 @@
 
     <div>
 
-      <div class="container">
-        <div class="row">
-          <div class="col-3 chord-box">
-            <div class="row">
-              <div class="col-3">Am7</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
+        
+        <div v-for="(lyric_line, index) in song.lyrics_displayed"> <!-- how do you find the index as you loop with v-for in vue -->
+          <div class="row">
+            <div class="col-3 chord-box" v-for="measure in song.chords_displayed[index]">
+              <div class="row">
+                <div class="col-3" v-for="beat in measure">{{ beat }}</div>
+              </div>
             </div>
           </div>
-          <div class="col-3 chord-box">
-            <div class="row">
-              <div class="col-3">/</div>
-              <div class="col-3">D</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-            </div>
-          </div>
-          <div class="col-3 chord-box">
-            <div class="row">
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-            </div>
-          </div>
-          <div class="col-3 chord-box">
-            <div class="row">
-              <div class="col-3">G</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-            </div>
+
+          <div class="lyrics">
+            {{ lyric_line }} <!-- call from a lyrics array by index -->
           </div>
         </div>
 
-        <div class="lyrics">
-          I never meant to cause you any sorrow
-        </div>
-
-        <div class="row">
-          <div class="col-3 chord-box">
-            <div class="row">
-              <div class="col-3">Am7</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-            </div>
-          </div>
-          <div class="col-3 chord-box">
-            <div class="row">
-              <div class="col-3">/</div>
-              <div class="col-3">D</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-            </div>
-          </div>
-          <div class="col-3 chord-box">
-            <div class="row">
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-            </div>
-          </div>
-          <div class="col-3 chord-box">
-            <div class="row">
-              <div class="col-3">G</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="lyrics">
-          I never meant to cause you any pain
-        </div>
-
-        <div class="row">
-          <div class="col-3 chord-box">
-            <div class="row">
-              <div class="col-3">Am7</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-            </div>
-          </div>
-          <div class="col-3 chord-box">
-            <div class="row">
-              <div class="col-3">/</div>
-              <div class="col-3">D</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-            </div>
-          </div>
-          <div class="col-3 chord-box">
-            <div class="row">
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-            </div>
-          </div>
-          <div class="col-3 chord-box">
-            <div class="row">
-              <div class="col-3">G</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="lyrics">
-          I only wanted to one time to see you laughing
-        </div>
-
-        <!-- formatted_chords = [[["Am7", "/", "/" "/"], ["Am7", "/", "/" "/"], ["Am7", "/", "/" "/"], ["Am7", "/", "/" "/"]], [["Am7", "/", "/" "/"], ["Am7", "/", "/" "/"], ["Am7", "/", "/" "/"], ["Am7", "/", "/" "/"]]] -->
-
-        <!-- dynamic version -->
-
-<!--    <div class="row" v-for="line in formatted_chords">
-          <div class="col-3 chord-box" v-for="measure in line">
-            <div class="row">
-              <div class="col-3" v-for="beat in measure">{{ beat }}</div>
-            </div>
-          </div>
-        </div> -->
-
-        <div class="row">
-          <div class="col-3 chord-box">
-            <div class="row">
-              <div class="col-3">Am7</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-            </div>
-          </div>
-          <div class="col-3 chord-box">
-            <div class="row">
-              <div class="col-3">/</div>
-              <div class="col-3">D</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-            </div>
-          </div>
-          <div class="col-3 chord-box">
-            <div class="row">
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-            </div>
-          </div>
-          <div class="col-3 chord-box">
-            <div class="row">
-              <div class="col-3">G</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="lyrics">
-          I only wanted to see you
-        </div>
-
-        <div class="row">
-          <div class="col-3 chord-box">
-            <div class="row">
-              <div class="col-3">Am7</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-            </div>
-          </div>
-          <div class="col-3 chord-box">
-            <div class="row">
-              <div class="col-3">/</div>
-              <div class="col-3">D</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-            </div>
-          </div>
-          <div class="col-3 chord-box">
-            <div class="row">
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-            </div>
-          </div>
-          <div class="col-3 chord-box">
-            <div class="row">
-              <div class="col-3">G</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-              <div class="col-3">/</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="lyrics">
-          Laughing in the purple rain
-        </div>
-
-
-      </div>
     </div>
 
       
@@ -272,7 +77,9 @@ var axios = require('axios');
                   artist: "",
                   lyrics: "",
                   beats_per_measure: "",
-                  note_value: ""
+                  note_value: "",
+                  chords_displayed: [],
+                  lyrics_displayed: []
                 }
       };
     },
