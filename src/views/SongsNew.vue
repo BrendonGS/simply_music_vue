@@ -5,22 +5,25 @@
      <li v-for="error in errors">{{ error }}</li>
    </ul>
    <form v-on:submit.prevent="submit()">
-       <div>
-         Title: <input v-model="newSongTitle">
-       </div>
-       <div>
-         Artist: <input v-model="newSongArtist">
-       </div>
-       <div>
-         Lyrics: <input v-model="newSongLyrics">
-       </div>
-       <div>
-         Beats Per Measure: <input v-model="newSongBeatsPerMeasure">
-       </div>
-       <div>
-         Note Value: <input v-model="newSongNoteValue">
-       </div>
-       <input type="submit" value="Add New Song" class="btn btn-warning">
+<!--       <div>
+        User Id: <input v-model="newSongUserId">
+      </div> -->
+      <div>
+        Title: <input v-model="newSongTitle">
+      </div>
+      <div>
+        Artist: <input v-model="newSongArtist">
+      </div>
+      <div>
+        Lyrics: <textarea v-model="newSongLyrics" height="30" width="60"></textarea>
+      </div>
+      <div>
+        Beats Per Measure: <input v-model="newSongBeatsPerMeasure">
+      </div>
+      <div>
+        Note Value: <input v-model="newSongNoteValue">
+      </div>
+      <input type="submit" value="Add New Song" class="btn btn-warning">
     </form>
   </div>
 </template>
@@ -50,7 +53,7 @@ export default {
                     title: this.newSongTitle,
                     artist: this.newSongArtist,
                     lyrics: this.newSongLyrics,
-                    beats_per_meausure: this.newSongBeatsPerMeasure,
+                    beats_per_measure: this.newSongBeatsPerMeasure,
                     note_value: this.newSongNoteValue
                     };
       axios.post("/api/songs", params)

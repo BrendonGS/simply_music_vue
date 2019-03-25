@@ -4,9 +4,9 @@
       
       <h1>{{song.title}}</h1>
       <h3>Artist: {{song.artist}}</h3>
-      <h4>Lyrics: <pre>{{song.lyrics}}</pre></h4>
       <h3>Beats Per Measure: {{song.beats_per_measure}}</h3>
       <h3>Note Value: {{song.note_value}}</h3>
+      <h4>Testing: {{  }}</h4>
 
 
       <router-link class="btn btn-primary" :to=" 'songs' + song.id + '/edit' ">Edit</router-link>
@@ -32,26 +32,32 @@
 
     </div>
 
+    <div>
+      <h2>Chords</h2>
+      <ul>
+        <li v-for="chord in song.chords">{{ chord.display_notes }} <router-link class="btn-small btn-chord-edit" :to="'/chords/' + chord.id + '/edit'">Edit</router-link></li>
+      </ul>
+    </div>
+
       
       <form v-on:submit.prevent="submit()">
         
-        <div class="form-group">
-          <label for="exampleFormControlSelect2">Example multiple select</label>
-          <select multiple class="form-control" id="exampleFormControlSelect2">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-
-          <input class="form-control" type="text" placeholder="Default input">   
-
-          <div align="center">
-            <button>Add</button> <span><button>Scale</button></span>
+          <div class="input-group mb-3">
+            <input type="text" v-model="newChordQuality" class="form-control" placeholder="Quality" aria-label="" aria-describedby="basic-addon1">
           </div>
 
-        </div>
+          <div class="input-group mb-3">
+            <input type="number" v-model="newChordBeats" class="form-control" placeholder="Beats" aria-label="" aria-describedby="basic-addon1">
+          </div>
+
+          <div class="input-group mb-3">
+            <input type="number" v-model="newChordInversion" class="form-control" placeholder="Inversion" aria-label="" aria-describedby="basic-addon1">
+          </div>
+
+          <div class="input-group-prepend">
+            <input class="btn btn-outline-secondary" type="submit" value="Add Chord">
+          </div>
+
       </form>
 
   </div>
@@ -59,9 +65,18 @@
 
 <style>
   .chord-box {
-    border: solid black 2px;
+    border: solid black 1px;
     margin-top: 20px;
     margin-bottom: 20px;
+  }
+
+  .btn-chord-edit {
+    background-color: #008;
+    color: white;
+  }
+
+  .btn-chord-edit:hover {
+    color: #001;
   }
 </style>
 
@@ -79,8 +94,12 @@ var axios = require('axios');
                   beats_per_measure: "",
                   note_value: "",
                   chords_displayed: [],
-                  lyrics_displayed: []
-                }
+                  lyrics_displayed: [],
+                  chords: []
+                },
+        newChordQuality: "",
+        newChordBeats: 1,
+        newChordInversion: 0
       };
     },
     created: function() {
@@ -92,11 +111,33 @@ var axios = require('axios');
     },
     methods: {
       destroySong: function() {
-        axios.delete("/api/songs/" + this.song.id)
+        axios
+        .delete("/api/songs/" + this.song.id)
         .then( response => {
           console.log("Success", response.data);
           this.$router.push("/");
         });
+      },
+      submit: function() {
+        var params = {
+                      quality: this.newChordQuality,
+                      beats: this.newChordBeats,
+                      inversion: this.newChordInversion,
+                      song_id: this.$route.params.id
+                      };
+        console.log("New Chord Created");
+        axios
+          .post("/api/chords", params)
+          .then(response => {
+              axios.get("/api/songs/" + this.$route.params.id)
+                .then(response => {
+                  console.log(response.data);
+                  this.song = response.data;
+                });
+              this.newChordQuality = "";
+              this.newChordBeats = 1;
+              this.newChordInversion = 0;
+          });
       }
     }
   }
