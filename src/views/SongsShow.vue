@@ -9,7 +9,7 @@
       <h4>Testing: {{  }}</h4>
 
 
-      <router-link class="btn btn-primary" :to=" 'songs' + song.id + '/edit' ">Edit</router-link>
+      <router-link class="btn btn-primary" :to="'/songs/' + song.id + '/edit' ">Edit</router-link>
       <button class="btn btn-warning" v-on:click="destroySong()">Delete</button>
     </div>
 

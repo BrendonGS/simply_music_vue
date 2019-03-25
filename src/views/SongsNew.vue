@@ -5,9 +5,6 @@
      <li v-for="error in errors">{{ error }}</li>
    </ul>
    <form v-on:submit.prevent="submit()">
-<!--       <div>
-        User Id: <input v-model="newSongUserId">
-      </div> -->
       <div>
         Title: <input v-model="newSongTitle">
       </div>

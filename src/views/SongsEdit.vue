@@ -15,9 +15,6 @@
           Lyrics: <input v-model="song.lyrics">
         </div>
         <div>
-          Ingredients: <input v-model="song.ingredients">
-        </div>
-        <div>
           Beats Per Measure: <input v-model="song.beats_per_measure">
         </div>
         <div>
