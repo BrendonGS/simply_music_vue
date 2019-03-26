@@ -1,18 +1,15 @@
 <template>
   <div class="songs-edit">
-    <h1>Edit Song</h1>
+    <h1 class="text-center mt-0 mb-5 pb-3 text-uppercase"><b>Edit Song</b></h1>
     <ul>
       <li v-for="error in errors">{{ error }}</li> 
     </ul>
     <form v-on:submit.prevent="submit()">
-        <div>
+<!--         <div>
           Title: <input v-model="song.title">
         </div>
         <div>
           Artist: <input v-model="song.artist">
-        </div>
-        <div>
-          Lyrics: <input v-model="song.lyrics">
         </div>
         <div>
           Beats Per Measure: <input v-model="song.beats_per_measure">
@@ -20,14 +17,63 @@
         <div>
           Note Value: <input v-model="song.note_value">
         </div>
-        <input type="submit" value="Update" class="btn btn-success">
+        <div>
+          Lyrics: <input v-model="song.lyrics">
+        </div>
+        
+ -->
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <input id="title" class="form-control" placeholder="Title*" name="title" type="text" required="" v-model="song.title">
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <input id="artist" class="form-control" placeholder="Artist*" name="artist" type="text" required="" v-model="song.artist">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <input id="beats per measure" class="form-control" placeholder="Beats per measure*" name="beats per measure" type="text" v-model="song.beats_per_measure">
+                </div>
+            </div>
+  
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <input id="note value" class="form-control" placeholder="Note value*" name="note value" type="text" v-model="song.note_value">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <textarea id="lyrics" class="form-control" rows="5" placeholder="Lyrics*" name="lyrics" required="" v-model="song.lyrics"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group text-center">
+                    <input type="submit" value="Update" class="btn btn-dark">
+                </div>
+            </div>
+        </div>
      </form>
     
   </div>
 </template>
 
 <style>
-  
+h1 {
+  padding-top: 40px;
+}
 </style>
 
 <script>

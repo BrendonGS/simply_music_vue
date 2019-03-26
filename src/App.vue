@@ -1,17 +1,12 @@
 <template>
   <div id="app">
-    <!-- <div id="nav"> -->
-      <!-- nav bar shit goes below here -->
-      <!-- <router-link to="/">Home</router-link> |
-      <router-link to="/Signup">Signup</router-link> -->
-    <!-- </div> -->
 
   <!-- Begin page -->
   <div id="wrapper">
       <!-- Top Bar Start -->
       <div class="topbar-mobile">
           <div class="logo">
-              <a href="index.html"><img src="images/logo.png" alt="" class="" style="height: 44px;"></a>
+              <a href="index.html"><img src="images/AndyGuitar.jpg" alt="" class="" style="height: 44px;"></a>
               <button class="button-menu-mobile">
                   <i class="mdi mdi-menu"></i>
               </button>
@@ -24,7 +19,7 @@
           <div class="slimscroll-menu" id="remove-scroll">
 
               <div class="logo">
-                  <a href="index.html"><img src="images/logo.png" alt="" class="" style="height: 44px;"></a>
+                  <a href="index.html"><img src="/images/AndyGuitar.jpg" alt="" class="" style="height: 44px;"></a>
                   <p class="text-muted"> Get cha song weight up </p>
               </div>
 
@@ -73,10 +68,10 @@
                   </div>
 
                   <ul class="socials list-unstyled mb-0 text-center mt-5">
-                    <li><a href="http://facebook.com"><i class="mdi mdi-facebook"></i></a></li>
-                    <li><a href="http://twitter.com"><i class="mdi mdi-twitter"></i></a></li>
-                    <li><a href="http://instagram.com"><i class="mdi mdi-instagram"></i></a></li>
-                    <li><a href="http://pinterest.com"><i class="mdi mdi-pinterest"></i></a></li>
+                    <li><a href="https://www.facebook.com/brendon.germany"><i class="mdi mdi-facebook"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/brendon-germany/"><i class="mdi mdi-linkedin"></i></a></li>
+                    <li><a href="https://github.com/BrendonGS"><i class="mdi mdi-git"></i></a></li>
+                    <!-- <li><a href="http://pinterest.com"><i class="mdi mdi-pinterest"></i></a></li> -->
                   </ul>
               </div>
               <!-- end container -->
@@ -100,4 +95,5 @@
 .personal-space {
   min-height: 480px;
 }
+
 </style>

@@ -1,19 +1,23 @@
 <template>
   <div class="songs-show">
-    <div class="container" align="center">
+    <div align="center">
       
       <h1>{{song.title}}</h1>
+      <span class="fa-stack">
+        <span class="fa fa-square-o" style="font-size:36px;"></span>
+
+        <strong class="fa-stack-1x">
+          {{song.beats_per_measure + "/" + song.note_value}}
+        </strong>
+      </span>
       <h3>Artist: {{song.artist}}</h3>
-      <h3>Beats Per Measure: {{song.beats_per_measure}}</h3>
-      <h3>Note Value: {{song.note_value}}</h3>
-      <h4>Testing: {{  }}</h4>
 
 
       <router-link class="btn btn-primary" :to="'/songs/' + song.id + '/edit' ">Edit</router-link>
-      <button class="btn btn-warning" v-on:click="destroySong()">Delete</button>
+      <button class="btn btn-dark" v-on:click="destroySong()">Delete</button>
     </div>
 
-    <div>
+    <div class="container">
 
         
         <div v-for="(lyric_line, index) in song.lyrics_displayed"> <!-- how do you find the index as you loop with v-for in vue -->
@@ -32,7 +36,7 @@
 
     </div>
 
-    <div>
+    <div class="container">
       <h2>Chords</h2>
       <ul>
         <li v-for="chord in song.chords">{{ chord.display_notes }} <router-link class="btn-small btn-chord-edit" :to="'/chords/' + chord.id + '/edit'">Edit</router-link></li>
@@ -41,20 +45,36 @@
 
       
       <form v-on:submit.prevent="submit()">
+        <div class="row">
+            <div class="col-4"></div>
+          <div class="col-4">
+            <div class="input-group mb-2">
+              <input type="text" v-model="newChordQuality" class="form-control" placeholder="Quality" aria-label="" aria-describedby="basic-addon1">
+            </div>
+          </div>
+        </div>
+
         
-          <div class="input-group mb-3">
-            <input type="text" v-model="newChordQuality" class="form-control" placeholder="Quality" aria-label="" aria-describedby="basic-addon1">
+        <div class="row">
+          <div class="col-4"></div>
+          <div class="col-4">
+            <div class="input-group mb-2">
+              <input type="number" v-model="newChordBeats" class="form-control" placeholder="Beats" aria-label="" aria-describedby="basic-addon1">
+            </div>
           </div>
+        </div>
 
-          <div class="input-group mb-3">
-            <input type="number" v-model="newChordBeats" class="form-control" placeholder="Beats" aria-label="" aria-describedby="basic-addon1">
+        <div class="row">
+          <div class="col-4"></div>
+          <div class="col-4">
+            <div class="input-group mb-2">
+              <input type="number" v-model="newChordInversion" class="form-control" placeholder="Inversion" aria-label="" aria-describedby="basic-addon1">
+            </div>
           </div>
+        </div>
+          
 
-          <div class="input-group mb-3">
-            <input type="number" v-model="newChordInversion" class="form-control" placeholder="Inversion" aria-label="" aria-describedby="basic-addon1">
-          </div>
-
-          <div class="input-group-prepend">
+          <div class="input-group-prepend text-center">
             <input class="btn btn-outline-secondary" type="submit" value="Add Chord">
           </div>
 
@@ -77,6 +97,10 @@
 
   .btn-chord-edit:hover {
     color: #001;
+  }
+
+  .card {
+    border-radius: 30px;
   }
 </style>
 
