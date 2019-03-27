@@ -3,6 +3,7 @@
     <div align="center">
       
       <h1>{{song.title}}</h1>
+      <h3>Artist: {{song.artist}}</h3>
       <span class="fa-stack">
         <span class="fa fa-square-o" style="font-size:36px;"></span>
 
@@ -10,10 +11,9 @@
           {{song.beats_per_measure + "/" + song.note_value}}
         </strong>
       </span>
-      <h3>Artist: {{song.artist}}</h3>
 
 
-      <router-link class="btn btn-primary" :to="'/songs/' + song.id + '/edit' ">Edit</router-link>
+      <router-link class="btn btn-secondary" :to="'/songs/' + song.id + '/edit' ">Edit</router-link>
       <button class="btn btn-dark" v-on:click="destroySong()">Delete</button>
     </div>
 
@@ -35,12 +35,21 @@
         </div>
 
     </div>
+      
+      <div class="text-center">
+        <h2>Chords</h2>
+      </div>
 
     <div class="container">
-      <h2>Chords</h2>
-      <ul>
-        <li v-for="chord in song.chords">{{ chord.display_notes }} <router-link class="btn-small btn-chord-edit" :to="'/chords/' + chord.id + '/edit'">Edit</router-link></li>
-      </ul>
+
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+          <ul>
+            <li v-for="chord in song.chords">{{ chord.display_notes }} <router-link class="btn-small" :to="'/chords/' + chord.id + '/edit'">Edit</router-link></li>
+          </ul>
+        </div>
+      </div>
     </div>
 
       
@@ -75,7 +84,7 @@
           
 
           <div class="input-group-prepend text-center">
-            <input class="btn btn-outline-secondary" type="submit" value="Add Chord">
+            <input class="btn btn-outline-dark" type="submit" value="Add Chord">
           </div>
 
       </form>
@@ -85,7 +94,7 @@
 
 <style>
   .chord-box {
-    border: solid black 1px;
+    border: solid black 1.5px;
     margin-top: 20px;
     margin-bottom: 20px;
   }
@@ -101,6 +110,14 @@
 
   .card {
     border-radius: 30px;
+  }
+  .fa-stack {
+    top: -87px;
+    right: -560px;
+  }
+  .btn-small {
+    color: #737B84;
+    font-weight: bold;
   }
 </style>
 

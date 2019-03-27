@@ -6,7 +6,7 @@
        <!-- <div v-for="song in songs">{{song.title}}</div> -->
 
        <table class="table">
-         <thead class="thead-light">
+         <thead class="thead">
            <tr>
              <th scope="col">ID</th>
              <th scope="col">Title</th>

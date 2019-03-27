@@ -4,14 +4,14 @@
   <!-- Begin page -->
   <div id="wrapper">
       <!-- Top Bar Start -->
-      <div class="topbar-mobile">
+   <!--    <div class="topbar-mobile">
           <div class="logo">
               <a href="index.html"><img src="images/AndyGuitar.jpg" alt="" class="" style="height: 44px;"></a>
               <button class="button-menu-mobile">
                   <i class="mdi mdi-menu"></i>
               </button>
           </div>
-      </div>
+      </div> -->
       <!-- Top Bar End -->
       <!-- ========== Left Sidebar Start ========== -->
       <div class="left side-menu">
@@ -20,7 +20,7 @@
 
               <div class="logo">
                   <a href="index.html"><img src="/images/AndyGuitar.jpg" alt="" class="" style="height: 44px;"></a>
-                  <p class="text-muted"> Get cha song weight up </p>
+                  <p class="text-muted"> Let's Start With This </p>
               </div>
 
               <!--- Sidemenu -->
@@ -71,7 +71,6 @@
                     <li><a href="https://www.facebook.com/brendon.germany"><i class="mdi mdi-facebook"></i></a></li>
                     <li><a href="https://www.linkedin.com/in/brendon-germany/"><i class="mdi mdi-linkedin"></i></a></li>
                     <li><a href="https://github.com/BrendonGS"><i class="mdi mdi-git"></i></a></li>
-                    <!-- <li><a href="http://pinterest.com"><i class="mdi mdi-pinterest"></i></a></li> -->
                   </ul>
               </div>
               <!-- end container -->
@@ -95,5 +94,6 @@
 .personal-space {
   min-height: 480px;
 }
+
 
 </style>
