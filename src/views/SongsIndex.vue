@@ -23,8 +23,10 @@
            </tr>
          </tbody>
        </table>
-
     </div> 
+    <div> 
+      <router-link id="newButton" class="btn btn-dark" :to="'/songs' + '/new' ">New Song</router-link>
+    </div>
   </div>
 </template>
 

@@ -92,7 +92,7 @@
   min-height: 600px;
 }
 .personal-space {
-  min-height: 480px;
+  min-height: 700px;
 }
 
 
